@@ -155,6 +155,45 @@
   .tip{font-size:.9rem;color:rgba(27,24,18,.78);background:rgba(211,154,46,.13);border-left:3px solid var(--ochre);padding:10px 14px;border-radius:0 8px 8px 0}
   .tip b{font-weight:700}
 
+  /* bookings */
+  .bk-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .bk-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:14px}
+  .bk-card.bk-wide{grid-column:1 / -1}
+  .bk-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .bk-tag{font-family:'Spline Sans Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);font-weight:600}
+  .bk-meta{font-family:'Spline Sans Mono',monospace;font-size:.7rem;color:rgba(27,24,18,.55)}
+  .bk-route{display:flex;align-items:center;gap:14px}
+  .bk-leg{flex:1}
+  .bk-time{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:700;line-height:1}
+  .bk-time small{font-family:'Spline Sans Mono',monospace;font-size:.62rem;font-weight:500;color:rgba(27,24,18,.5);margin-left:2px}
+  .bk-code{font-family:'Spline Sans Mono',monospace;font-size:.84rem;font-weight:600;color:var(--forest);margin-top:4px;letter-spacing:.04em}
+  .bk-place{font-size:.78rem;color:rgba(27,24,18,.55)}
+  .bk-arrow{font-family:'Spline Sans Mono',monospace;font-size:1.4rem;color:var(--ochre)}
+  .bk-grid-inner{display:grid;grid-template-columns:1fr 1fr;gap:12px 18px}
+  .bk-full{grid-column:1 / -1}
+  .bk-k{font-family:'Spline Sans Mono',monospace;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(27,24,18,.5);margin-bottom:2px}
+  .bk-v{font-size:.92rem}
+  .bk-v code{font-family:'Spline Sans Mono',monospace;font-size:.86rem;background:rgba(60,107,79,.12);padding:2px 7px;border-radius:5px}
+  .bk-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .bk-btn{font-family:'Spline Sans Mono',monospace;font-size:.74rem;background:var(--pine);color:var(--cream);border:none;padding:8px 13px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:5px;cursor:pointer}
+  .bk-btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .bk-warn{background:rgba(177,74,38,.1);border-left:3px solid var(--rust);padding:9px 13px;font-size:.86rem;border-radius:0 8px 8px 0;color:rgba(27,24,18,.8)}
+  .bk-warn b{font-weight:700;color:var(--rust)}
+
+  /* minimalist todo */
+  .todo-list{border-top:1px solid var(--line)}
+  .todo-row{display:flex;align-items:center;gap:14px;padding:14px 4px;border-bottom:1px solid var(--line);transition:background .15s}
+  .todo-row label{display:flex;align-items:center;gap:14px;flex:1;cursor:pointer}
+  .todo-row:hover{background:rgba(60,107,79,.04)}
+  .todo-row input{appearance:none;width:18px;height:18px;border:1.5px solid var(--moss);border-radius:5px;cursor:pointer;flex-shrink:0;position:relative}
+  .todo-row input:checked{background:var(--moss);border-color:var(--moss)}
+  .todo-row input:checked::after{content:"✓";position:absolute;color:var(--cream);font-size:.78rem;left:3px;top:-3px;font-weight:700}
+  .todo-row.done .todo-name{text-decoration:line-through;color:rgba(27,24,18,.4)}
+  .todo-name{flex:1;font-size:.95rem}
+  .todo-tag{font-family:'Spline Sans Mono',monospace;font-size:.66rem;letter-spacing:.12em;color:rgba(27,24,18,.5);text-transform:uppercase;white-space:nowrap}
+  .todo-row.done .todo-tag{opacity:.4}
+  .todo-summary{font-family:'Spline Sans Mono',monospace;font-size:.78rem;color:var(--moss);margin-top:18px}
+
   .lodge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .lodge{
     background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px 18px;
@@ -234,7 +273,7 @@
   @media(max-width:780px){
     .wx-grid{grid-template-columns:repeat(2,1fr)}
     .miss-grid{grid-template-columns:1fr}
-    .lodge-grid,.pack-grid,.res-list,.logi-grid{grid-template-columns:1fr}
+    .lodge-grid,.pack-grid,.res-list,.logi-grid,.bk-grid,.bk-grid-inner{grid-template-columns:1fr}
     .day-card{grid-template-columns:64px 1fr;gap:16px}
   }
   @media(max-width:440px){
@@ -281,12 +320,12 @@
   <div class="wrap hero-inner">
     <div class="kicker">Road Trip · 4 Days · Lake Yellowstone Base</div>
     <h1>Yellowstone<br>& <em>Grand Teton</em></h1>
-    <p class="sub">A red-eye-in, red-eye-out loop through geysers, canyons, bison valleys and the Tetons — built around July 4th weekend.</p>
+    <p class="sub">A four-day loop through geysers, canyons, bison valleys and the Tetons — built around July 4th weekend.</p>
     <div class="badges">
       <span class="badge"><span class="live-dot"></span>Live weather</span>
       <span class="badge">Jul 2 → Jul 5, 2026</span>
-      <span class="badge">ORD ⇄ BZN</span>
-      <span class="badge">3 nights · Lake Hotel</span>
+      <span class="badge">SEA ⇄ BZN · Alaska</span>
+      <span class="badge">Mid-size SUV · NÜ Car</span>
     </div>
     <div class="countdown" id="countdown">
       <div class="cd-cell"><div class="cd-num" id="cd-d">—</div><div class="cd-lbl">Days</div></div>
@@ -309,6 +348,59 @@
   <div class="wx-grid" id="wx-grid"></div>
 </div>
 
+<section class="wrap" id="bookings">
+  <div class="sec-label">Booked</div>
+  <h2 class="sec-title">Your confirmed travel</h2>
+
+  <div class="bk-grid">
+
+    <div class="bk-card">
+      <div class="bk-head">
+        <span class="bk-tag">✈ Outbound · Jul 2</span>
+        <span class="bk-meta">Alaska · AS 2141 · 1h 40m</span>
+      </div>
+      <div class="bk-route">
+        <div class="bk-leg"><div class="bk-time">7:06 <small>AM</small></div><div class="bk-code">SEA</div><div class="bk-place">Seattle</div></div>
+        <div class="bk-arrow">→</div>
+        <div class="bk-leg"><div class="bk-time">9:46 <small>AM</small></div><div class="bk-code">BZN</div><div class="bk-place">Bozeman</div></div>
+      </div>
+    </div>
+
+    <div class="bk-card">
+      <div class="bk-head">
+        <span class="bk-tag">✈ Return · Jul 5</span>
+        <span class="bk-meta">Alaska · AS 461 · nonstop</span>
+      </div>
+      <div class="bk-route">
+        <div class="bk-leg"><div class="bk-time">6:03 <small>AM</small></div><div class="bk-code">BZN</div><div class="bk-place">Bozeman</div></div>
+        <div class="bk-arrow">→</div>
+        <div class="bk-leg"><div class="bk-time">6:57 <small>AM</small></div><div class="bk-code">SEA</div><div class="bk-place">Seattle</div></div>
+      </div>
+      <div class="bk-warn"><b>Heads up:</b> a 6 AM Sunday flight means you can't sleep at Lake on Jul 4 (3-hr drive). Plan to overnight near BZN airport — see lodging.</div>
+    </div>
+
+    <div class="bk-card bk-wide">
+      <div class="bk-head">
+        <span class="bk-tag">🚙 Rental car</span>
+        <span class="bk-meta">Mid-size SUV · NÜ Car Rentals</span>
+      </div>
+      <div class="bk-grid-inner">
+        <div><div class="bk-k">Pick up</div><div class="bk-v">Thu Jul 2 · <b>9:30 AM</b></div></div>
+        <div><div class="bk-k">Drop off</div><div class="bk-v">Sun Jul 5 · <b>7:00 AM</b></div></div>
+        <div><div class="bk-k">Confirmation</div><div class="bk-v"><code>6900004060NU</code></div></div>
+        <div><div class="bk-k">Driver</div><div class="bk-v">Jatin Batra</div></div>
+        <div class="bk-full"><div class="bk-k">Location</div><div class="bk-v">NÜ Car Rentals · 20777 Frontage Rd, Belgrade, MT 59714 (BZN airport)</div></div>
+      </div>
+      <div class="bk-actions">
+        <a class="bk-btn" href="tel:14063121303">📞 406-312-1303</a>
+        <a class="bk-btn ghost" href="https://www.google.com/maps/search/?api=1&query=20777+Frontage+Road+Belgrade+MT" target="_blank" rel="noopener">↗ Directions</a>
+      </div>
+      <div class="bk-warn"><b>Bring:</b> driver's license, payment card matching driver name, physical insurance policy copy. Deposit refunded after return.</div>
+    </div>
+
+  </div>
+</section>
+
 <section class="wrap">
   <div class="sec-label">Highlights</div>
   <h2 class="sec-title">Don't miss these</h2>
@@ -317,64 +409,64 @@
     <div class="miss-card priority">
       <span class="miss-tag">★ Bucket-list</span>
       <h3>Grand Prismatic — overlook trail</h3>
-      <p>The boardwalk barely sees the color. The Fairy Falls overlook (~1.2 mi RT) is where the photo actually exists. Mid-morning or late afternoon for fewer crowds.</p>
-      <div class="miss-meta"><span>Day 3 · Midway</span><span>~45 min</span></div>
+      <p>The boardwalk barely sees the color. The Fairy Falls overlook (~1.2 mi RT) is where the photo actually exists. Late afternoon for fewer crowds and best light.</p>
+      <div class="miss-meta"><span>Day 2 · Midway</span><span>~45 min</span></div>
     </div>
 
     <div class="miss-card priority">
       <span class="miss-tag">★ Bucket-list</span>
       <h3>Hayden Valley at sunrise</h3>
-      <p>Best bison + grizzly density in the park, right next to your hotel. Be in the valley by 5:45 AM. Pull-offs only — wildlife always has right of way.</p>
-      <div class="miss-meta"><span>Day 4 · early</span><span>20 min from Lake</span></div>
+      <p>Best bison + grizzly density in the park, 20 min from your hotel. Be in the valley by 5:45 AM. Pull-offs only — wildlife always has right of way.</p>
+      <div class="miss-meta"><span>Day 3 · dawn</span><span>20 min from Lake</span></div>
     </div>
 
     <div class="miss-card priority">
       <span class="miss-tag">★ Bucket-list</span>
       <h3>Artist Point + Lower Falls</h3>
-      <p>The yellow-cliff canyon shot. Walk a section of the South Rim trail for the angle most people skip. Lower Falls is twice as tall as Niagara.</p>
-      <div class="miss-meta"><span>Day 4 · morning</span><span>~1.5 hr</span></div>
+      <p>The yellow-cliff canyon shot. Walk a section of the South Rim trail for the angle most people skip. Lower Falls is twice the height of Niagara.</p>
+      <div class="miss-meta"><span>Day 3 · morning</span><span>~1.5 hr</span></div>
     </div>
 
     <div class="miss-card">
       <span class="miss-tag">Geyser</span>
       <h3>Old Faithful · time it right</h3>
       <p>Eruptions every ~90 min, predicted ±10. Check the board at the visitor center the moment you arrive, then plan everything else around the next window.</p>
-      <div class="miss-meta"><span>Day 3</span><span>~2 min eruption</span></div>
+      <div class="miss-meta"><span>Day 2</span><span>~2 min eruption</span></div>
+    </div>
+
+    <div class="miss-card">
+      <span class="miss-tag">Geyser</span>
+      <h3>Upper Geyser Basin walk</h3>
+      <p>Don't just see Old Faithful and leave. Walk the 2-mile loop past Castle, Grand, Riverside — more geysers in one square mile than anywhere on Earth.</p>
+      <div class="miss-meta"><span>Day 2</span><span>1.5 hr</span></div>
     </div>
 
     <div class="miss-card">
       <span class="miss-tag">Wildlife</span>
-      <h3>Lamar Valley (if you have time)</h3>
-      <p>"America's Serengeti" — wolves, grizzlies, herds of bison. Far northeast, adds ~3 hr RT from Lake. Realistic only if you trim Tetons or Day 4.</p>
-      <div class="miss-meta"><span>Optional swap</span><span>Best at dawn</span></div>
-    </div>
-
-    <div class="miss-card">
-      <span class="miss-tag">View</span>
-      <h3>Jenny Lake shuttle + Hidden Falls</h3>
-      <p>Skip the 2.5 mi walk-around — take the boat across (~$20), do the short hike to Hidden Falls / Inspiration Point. Best Tetons return on investment.</p>
-      <div class="miss-meta"><span>Day 2 · Tetons</span><span>~2 hr total</span></div>
+      <h3>Lamar Valley (drive-through)</h3>
+      <p>"America's Serengeti" — wolves, grizzlies, herds of bison. Detour from Tower on Day 3 if you have light left. Adds ~1.5 hr round trip from the road north.</p>
+      <div class="miss-meta"><span>Day 3 · afternoon</span><span>Optional</span></div>
     </div>
 
     <div class="miss-card">
       <span class="miss-tag">Photo</span>
-      <h3>Oxbow Bend reflection</h3>
-      <p>The Tetons mirrored in a still bend of the Snake River. Drive-up. Best very early or just before sunset.</p>
-      <div class="miss-meta"><span>Day 2</span><span>5 min stop</span></div>
+      <h3>Mammoth Hot Springs terraces</h3>
+      <p>Travertine staircases that look like a frozen waterfall. Upper Terrace loop is a short drive. Hit on Day 1 inbound or Day 3 outbound — both pass through.</p>
+      <div class="miss-meta"><span>Days 1 + 3</span><span>45 min</span></div>
     </div>
 
     <div class="miss-card">
-      <span class="miss-tag">Soak</span>
-      <h3>Chico Hot Springs</h3>
-      <p>The classic in-park Boiling River soak is permanently closed. Chico (45 min north of Gardiner) is the next-best legal alternative. Day-pass to the pools.</p>
-      <div class="miss-meta"><span>Optional · Day 4</span><span>+90 min detour</span></div>
+      <span class="miss-tag">Geyser</span>
+      <h3>Norris Geyser Basin</h3>
+      <p>The hottest, most dynamic basin in the park. Porcelain Basin loop is otherworldly. Pass through on Day 1 inbound.</p>
+      <div class="miss-meta"><span>Day 1</span><span>1 hr</span></div>
     </div>
 
     <div class="miss-card">
       <span class="miss-tag">Easy win</span>
       <h3>West Thumb Geyser Basin</h3>
-      <p>Five-minute detour you'll pass twice. Hot springs that bubble straight into Yellowstone Lake. Most people don't stop. You should.</p>
-      <div class="miss-meta"><span>Days 2 + 3</span><span>30 min</span></div>
+      <p>Five-minute detour right next to Lake. Hot springs that bubble straight into Yellowstone Lake. Most people skip it. You shouldn't.</p>
+      <div class="miss-meta"><span>Day 2 · start</span><span>30 min</span></div>
     </div>
 
   </div>
@@ -385,46 +477,46 @@
   <h2 class="sec-title">Four days, one base</h2>
 
   <div class="day-card">
-    <div><div class="day-num">Day 1</div><div class="day-date">Thu · Jul 2</div></div>
+    <div><div class="day-num">Day 1</div><div class="day-date">Thu · Jul 2</div><span class="day-tag">ARRIVAL</span></div>
     <div class="day-body">
-      <h3>Land in Bozeman, drive into the park</h3>
-      <div class="route">BZN → Gardiner → Roosevelt Arch → Mammoth → Lake · ≈ 3.5 hr</div>
-      <a class="map-link" href="https://www.google.com/maps/dir/Bozeman+Yellowstone+International+Airport/Gardiner,+MT/Mammoth+Hot+Springs/Lake+Yellowstone+Hotel" target="_blank" rel="noopener">↗ Open route in Google Maps</a>
-      <div class="stops"><span class="stop">Rental pickup</span><span class="stop">Roosevelt Arch</span><span class="stop">Mammoth Terraces</span><span class="stop">Lake check-in</span><span class="stop">Lakeside dinner</span></div>
-      <div class="tip"><b>Red-eye lands early AM.</b> Stretch your legs at the Mammoth travertine terraces on the way in, then settle at Lake for a sunset walk.</div>
+      <h3>Land, drive in, north loop</h3>
+      <div class="route">BZN (9:46 AM) → NÜ pickup → Gardiner → Mammoth → Norris → Canyon → Lake · ≈ 4.5 hr driving</div>
+      <a class="map-link" href="https://www.google.com/maps/dir/Bozeman+Yellowstone+International+Airport/Gardiner,+MT/Mammoth+Hot+Springs/Norris+Geyser+Basin/Canyon+Village+Yellowstone/Lake+Yellowstone+Hotel" target="_blank" rel="noopener">↗ Open route in Google Maps</a>
+      <div class="stops"><span class="stop">Rental pickup 9:30</span><span class="stop">Roosevelt Arch</span><span class="stop">Mammoth Terraces</span><span class="stop">Norris Basin</span><span class="stop">Lake check-in</span></div>
+      <div class="tip"><b>Land 9:46 AM · pickup 9:30 AM</b> — confirm with NÜ that the car can wait or hold. Hit Mammoth travertine on the way south, then Norris for your first real geyser hit. Sunset walk along Lake.</div>
     </div>
   </div>
 
   <div class="day-card">
-    <div><div class="day-num">Day 2</div><div class="day-date">Fri · Jul 3</div></div>
+    <div><div class="day-num">Day 2</div><div class="day-date">Fri · Jul 3</div><span class="day-tag">GEYSERS</span></div>
     <div class="day-body">
-      <h3>Grand Teton</h3>
-      <div class="route">Lake → West Thumb → South Entrance → Tetons → back · ≈ 4 hr driving</div>
-      <a class="map-link" href="https://www.google.com/maps/dir/Lake+Yellowstone+Hotel/West+Thumb+Geyser+Basin/Jackson+Lake+Lodge/Jenny+Lake/Mormon+Row+Historic+District/Lake+Yellowstone+Hotel" target="_blank" rel="noopener">↗ Open route in Google Maps</a>
-      <div class="stops"><span class="stop">Jackson Lake Lodge</span><span class="stop">Oxbow Bend</span><span class="stop">Jenny Lake</span><span class="stop">Mormon Row</span></div>
-      <div class="tip"><b>Biggest drive — done while fresh.</b> Fuel up before leaving Lake. Lunch at Jackson Lake Lodge with the Teton range across Willow Flats.</div>
+      <h3>Full south-loop geyser day</h3>
+      <div class="route">Lake → West Thumb → Old Faithful → Black Sand → Midway (Grand Prismatic) → Firehole → Lake · ≈ 3.5 hr driving</div>
+      <a class="map-link" href="https://www.google.com/maps/dir/Lake+Yellowstone+Hotel/West+Thumb+Geyser+Basin/Old+Faithful/Black+Sand+Basin/Midway+Geyser+Basin/Firehole+Lake+Drive/Lake+Yellowstone+Hotel" target="_blank" rel="noopener">↗ Open route in Google Maps</a>
+      <div class="stops"><span class="stop">West Thumb</span><span class="stop">Old Faithful + Inn</span><span class="stop">Upper Geyser Basin walk</span><span class="stop">Black Sand</span><span class="stop">Grand Prismatic overlook</span><span class="stop">Firehole Lake Dr</span></div>
+      <div class="tip"><b>Lock the Old Faithful eruption time first.</b> Check the predicted-times board the moment you arrive, then plan lunch + Upper Basin walk around it. Save Grand Prismatic for late afternoon when crowds drop and the colors pop.</div>
     </div>
   </div>
 
   <div class="day-card">
-    <div><div class="day-num">Day 3</div><div class="day-date">Sat · Jul 4</div><span class="day-tag">JULY 4TH</span></div>
+    <div><div class="day-num">Day 3</div><div class="day-date">Sat · Jul 4</div><span class="day-tag">JULY 4TH · MOVE NIGHT</span></div>
     <div class="day-body">
-      <h3>Geyser Day</h3>
-      <div class="route">Lake → West Thumb → Old Faithful → Midway → Norris → Lake</div>
-      <a class="map-link" href="https://www.google.com/maps/dir/Lake+Yellowstone+Hotel/West+Thumb+Geyser+Basin/Old+Faithful/Midway+Geyser+Basin/Norris+Geyser+Basin/Lake+Yellowstone+Hotel" target="_blank" rel="noopener">↗ Open route in Google Maps</a>
-      <div class="stops"><span class="stop">West Thumb Basin</span><span class="stop">Old Faithful</span><span class="stop">Upper Geyser Basin</span><span class="stop">Grand Prismatic</span><span class="stop">Norris</span></div>
-      <div class="tip"><b>Start early — July 4th is the busiest day of the year.</b> Check eruption times at the Old Faithful visitor center; hit Grand Prismatic mid-morning or late for fewer crowds.</div>
+      <h3>Wildlife + Canyon, end in Bozeman</h3>
+      <div class="route">Lake → Hayden Valley (sunrise) → Canyon (Artist Point + Lower Falls) → Tower-Roosevelt → Lamar Valley peek → Mammoth → Gardiner → BZN airport hotel · ≈ 6 hr driving</div>
+      <a class="map-link" href="https://www.google.com/maps/dir/Lake+Yellowstone+Hotel/Hayden+Valley/Artist+Point+Yellowstone/Tower+Fall/Lamar+Valley/Mammoth+Hot+Springs/Gardiner,+MT/Bozeman+Yellowstone+International+Airport" target="_blank" rel="noopener">↗ Open route in Google Maps</a>
+      <div class="stops"><span class="stop">Hayden bison @ dawn</span><span class="stop">Artist Point</span><span class="stop">Lower Falls brink</span><span class="stop">Tower Fall</span><span class="stop">Lamar (if time)</span><span class="stop">Roosevelt Arch exit</span></div>
+      <div class="tip"><b>Long but worth it.</b> Be in Hayden by 5:45 AM for the wildlife window. Check out of Lake mid-morning, do Canyon next, then trade Lamar for time as needed. Aim to roll into Bozeman by 9–10 PM for a short night before the early flight.</div>
     </div>
   </div>
 
   <div class="day-card">
-    <div><div class="day-num">Day 4</div><div class="day-date">Sun · Jul 5</div></div>
+    <div><div class="day-num">Day 4</div><div class="day-date">Sun · Jul 5</div><span class="day-tag">FLY HOME</span></div>
     <div class="day-body">
-      <h3>Canyon, then fly home</h3>
-      <div class="route">Lake → Hayden Valley → Canyon → Norris → Mammoth → Gardiner → BZN</div>
-      <a class="map-link" href="https://www.google.com/maps/dir/Lake+Yellowstone+Hotel/Hayden+Valley/Artist+Point+Yellowstone/Norris+Geyser+Basin/Mammoth+Hot+Springs/Gardiner,+MT/Bozeman+Yellowstone+International+Airport" target="_blank" rel="noopener">↗ Open route in Google Maps</a>
-      <div class="stops"><span class="stop">Hayden Valley bison</span><span class="stop">Artist Point</span><span class="stop">Lower Falls</span><span class="stop">Rim walks</span><span class="stop">Exit north</span></div>
-      <div class="tip"><b>Leave Lake by late morning.</b> Hayden Valley is best early for wildlife. The northbound exit lines up with your late-night flight out of BZN.</div>
+      <h3>Pre-dawn airport run</h3>
+      <div class="route">BZN hotel → NÜ drop-off → Alaska AS 461 to SEA (6:03 AM → 6:57 AM) · 10 min drive</div>
+      <a class="map-link" href="https://www.google.com/maps/dir/Bozeman+Montana/Bozeman+Yellowstone+International+Airport" target="_blank" rel="noopener">↗ Open route in Google Maps</a>
+      <div class="stops"><span class="stop">Wake ~4:15 AM</span><span class="stop">Fuel up night before</span><span class="stop">Drop NÜ car</span><span class="stop">TSA by 5:00</span><span class="stop">Boarding ~5:35</span></div>
+      <div class="tip"><b>The 6:03 AM flight is the constraint.</b> Drop-off shows 7:00 AM on the reservation but your flight is at 6:03 — return the car before going through security (~5 AM). Fill the tank the night before; gas stations near BZN don't open early.</div>
     </div>
   </div>
 </section>
@@ -433,12 +525,12 @@
   <div class="sec-label">Where to sleep</div>
   <h2 class="sec-title">Lodging · July 4th weekend</h2>
   <p class="sec-intro">
-    In-park rooms book out 6–12 months ahead for July 4. Prices are recent ballparks per night — always confirm by phone; online forms are request-only.
+    With a 6 AM Sunday flight, plan is <b>2 nights at Lake Hotel + 1 night near BZN airport</b>. In-park rooms book out 6–12 months ahead for July 4 — call to confirm.
   </p>
   <div class="lodge-grid">
 
     <div class="lodge featured">
-      <span class="lg-tag">★ Your pick · 3 nights</span>
+      <span class="lg-tag">★ Your pick · 2 nights (Jul 2 + 3)</span>
       <div class="lg-name">Lake Yellowstone Hotel & Cabins</div>
       <div class="lg-meta">In-park · lakeside · historic, 1891</div>
       <div class="lg-price">$450–700<small>hotel rms</small></div>
@@ -449,23 +541,34 @@
       </div>
     </div>
 
+    <div class="lodge featured">
+      <span class="lg-tag">★ Last night · Jul 4 (near BZN)</span>
+      <div class="lg-name">Holiday Inn BZN Airport · Belgrade</div>
+      <div class="lg-meta">5 min to airport · free shuttle · airport-quiet</div>
+      <div class="lg-price">$220–320<small>/night peak</small></div>
+      <div class="lg-note">Pick something within 10 min of BZN for a 4 AM wake. Other solid picks: Hampton Inn Bozeman Airport, TownePlace Suites Belgrade, Best Western Plus Belgrade.</div>
+      <div class="lg-actions">
+        <a class="lg-btn ghost" href="https://www.google.com/maps/search/?api=1&query=hotels+near+Bozeman+Yellowstone+International+Airport" target="_blank" rel="noopener">↗ Airport hotels on map</a>
+      </div>
+    </div>
+
     <div class="lodge">
-      <span class="lg-tag">Backup · in-park</span>
+      <span class="lg-tag">Alt · in-park</span>
       <div class="lg-name">Old Faithful Inn</div>
       <div class="lg-meta">In-park · iconic log lodge</div>
       <div class="lg-price">$300–700<small>/night</small></div>
-      <div class="lg-note">Closer to Day 3's geyser route. Old House rooms cheapest, shared bath.</div>
+      <div class="lg-note">Closer to Day 2's geyser route. Old House rooms cheapest, shared bath.</div>
       <div class="lg-actions">
         <a class="lg-btn" href="tel:13073447311">📞 307-344-7311</a>
       </div>
     </div>
 
     <div class="lodge">
-      <span class="lg-tag">Backup · in-park</span>
+      <span class="lg-tag">Alt · in-park</span>
       <div class="lg-name">Canyon Lodge</div>
       <div class="lg-meta">In-park · central, modern</div>
       <div class="lg-price">$300–550<small>/night</small></div>
-      <div class="lg-note">Closest to Day 4's Hayden Valley + Canyon morning. Newest in-park rooms.</div>
+      <div class="lg-note">Closer to Day 3's Hayden Valley + Canyon. Newest in-park rooms.</div>
       <div class="lg-actions">
         <a class="lg-btn" href="tel:13073447311">📞 307-344-7311</a>
       </div>
@@ -474,9 +577,9 @@
     <div class="lodge">
       <span class="lg-tag">Gateway · north</span>
       <div class="lg-name">The Roosevelt Hotel · Gardiner</div>
-      <div class="lg-meta">Gardiner, MT · on Day 4 exit route</div>
+      <div class="lg-meta">Gardiner, MT · on Day 3 exit route</div>
       <div class="lg-price">~$316<small>/night recent</small></div>
-      <div class="lg-note">Restaurant + bar, walkable town, 5 min from the Arch.</div>
+      <div class="lg-note">Could break the Jul 4 drive in two — sleep here instead of BZN, then 1.5-hr morning drive at 4 AM. Closer to action than airport hotels but earlier wake.</div>
       <div class="lg-actions">
         <a class="lg-btn ghost" href="https://www.theroosevelthotel.com/" target="_blank" rel="noopener">Website</a>
       </div>
@@ -487,20 +590,9 @@
       <div class="lg-name">Three Bear Lodge · West Yellowstone</div>
       <div class="lg-meta">West Yellowstone, MT · 30 min to Old Faithful</div>
       <div class="lg-price">$280–450<small>/night</small></div>
-      <div class="lg-note">More restaurants + shops than Gardiner. Best if you swap to a geyser-first plan.</div>
+      <div class="lg-note">If Lake is full, swap base. More restaurants + shops than Gardiner.</div>
       <div class="lg-actions">
         <a class="lg-btn ghost" href="https://www.threebearlodge.com/" target="_blank" rel="noopener">Website</a>
-      </div>
-    </div>
-
-    <div class="lodge">
-      <span class="lg-tag">Splurge · Tetons</span>
-      <div class="lg-name">Jackson Lake Lodge</div>
-      <div class="lg-meta">In Grand Teton NP · Teton views</div>
-      <div class="lg-price">$400–800<small>/night</small></div>
-      <div class="lg-note">Worth one night if you flip Day 2 — sunrise over the Tetons from the lobby window.</div>
-      <div class="lg-actions">
-        <a class="lg-btn ghost" href="https://www.gtlc.com/lodges/jackson-lake-lodge" target="_blank" rel="noopener">Website</a>
       </div>
     </div>
 
@@ -518,11 +610,11 @@
   <div class="pack-grid" id="pack-grid"></div>
 </section>
 
-<section class="wrap" id="reservations">
-  <div class="sec-label">Status check</div>
-  <h2 class="sec-title">Bookings tracker</h2>
-  <div class="res-list" id="res-list"></div>
-  <p class="res-hint">Saved to your browser. No account, no sync — just for you.</p>
+<section class="wrap" id="todo">
+  <div class="sec-label">What's left</div>
+  <h2 class="sec-title">To-do</h2>
+  <div class="todo-list" id="todo-list"></div>
+  <p class="todo-summary" id="todo-summary">— of — done</p>
 </section>
 
 <section class="wrap">
@@ -567,7 +659,7 @@
       <button class="share-btn" id="copy-link">⧉ Copy link</button>
       <button class="share-btn" id="native-share">↗ Share</button>
       <button class="share-btn" id="print-btn">🖨 Print</button>
-      <a class="share-btn" href="#packing">🎒 Jump to packing</a>
+      <a class="share-btn" href="#todo">✓ Jump to to-do</a>
     </div>
     <p class="foot-note">
       Live weather + sunrise via Open-Meteo · refreshes every 10 min · works offline once installed<br>
@@ -581,10 +673,10 @@ const TRIP_START = new Date('2026-07-02T06:00:00-06:00');
 const TRIP_END   = new Date('2026-07-05T23:59:00-06:00');
 
 const LOCATIONS = [
-  { loc:"Bozeman",     day:"Arrival · BZN", lat:45.68, lon:-111.04 },
-  { loc:"Lake YS",     day:"Your base",     lat:44.55, lon:-110.40 },
-  { loc:"Old Faithful",day:"Geyser day",    lat:44.46, lon:-110.83 },
-  { loc:"Grand Teton", day:"Teton day",     lat:43.86, lon:-110.59 },
+  { loc:"Bozeman",     day:"Land + last night", lat:45.68, lon:-111.04 },
+  { loc:"Lake YS",     day:"Your 2-night base", lat:44.55, lon:-110.40 },
+  { loc:"Old Faithful",day:"Geyser day",        lat:44.46, lon:-110.83 },
+  { loc:"Canyon",      day:"Canyon + Hayden",   lat:44.73, lon:-110.50 },
 ];
 
 const WMO = {
@@ -826,41 +918,53 @@ document.getElementById('pack-reset').addEventListener('click', ()=>{
 });
 renderPack();
 
-/* ---------- reservations ---------- */
-const RES = [
-  { k:'fly-out',  name:'Flight ORD → BZN (red-eye Jul 1/2)' },
-  { k:'fly-back', name:'Flight BZN → ORD (late Jul 5)' },
-  { k:'car',      name:'Rental car · BZN airport' },
-  { k:'hotel',    name:'Lake Yellowstone Hotel · 3 nights' },
-  { k:'park',     name:'Park entry pass purchased' },
-  { k:'spray',    name:'Bear spray plan (buy/rent in park)' },
-  { k:'insure',   name:'Travel insurance' },
-  { k:'apps',     name:'NPS app + offline Google Map saved' },
+/* ---------- to-do list ---------- */
+const TODO = [
+  { k:'fly-out',  name:'Flight SEA → BZN · AS 2141',           tag:'Booked',   done:true },
+  { k:'fly-back', name:'Flight BZN → SEA · AS 461',            tag:'Booked',   done:true },
+  { k:'car',      name:'Rental car · NÜ mid-size SUV',         tag:'Booked',   done:true },
+  { k:'hotel-lake', name:'Lake Yellowstone Hotel · 2 nights',  tag:'Book' },
+  { k:'hotel-bzn',  name:'Bozeman airport hotel · Jul 4 night', tag:'Book' },
+  { k:'park',     name:'Park entry pass ($35 vehicle, 7-day)',  tag:'Buy' },
+  { k:'insure',   name:'Travel insurance',                     tag:'Decide' },
+  { k:'spray',    name:'Bear spray plan (buy/rent in park)',    tag:'Prep' },
+  { k:'apps',     name:'NPS app + offline Google Map saved',    tag:'Prep' },
+  { k:'cash',     name:'Cash for in-park tips / small towns',   tag:'Prep' },
+  { k:'binos',    name:'Binoculars + camera batteries charged', tag:'Pack' },
+  { k:'install',  name:'Install this page to your phone',       tag:'Now' },
 ];
 
-function renderRes(){
-  const saved = JSON.parse(localStorage.getItem('yst-res') || '{}');
-  const wrap = document.getElementById('res-list');
-  wrap.innerHTML = RES.map(r => {
-    const done = !!saved[r.k];
-    return `<div class="res-row ${done?'done':''}">
+function renderTodo(){
+  const saved = JSON.parse(localStorage.getItem('yst-todo') || 'null');
+  const state = saved || Object.fromEntries(TODO.filter(t=>t.done).map(t=>[t.k,1]));
+  if (!saved) localStorage.setItem('yst-todo', JSON.stringify(state));
+  const wrap = document.getElementById('todo-list');
+  let done = 0;
+  wrap.innerHTML = TODO.map(t => {
+    const isDone = !!state[t.k];
+    if (isDone) done++;
+    return `<div class="todo-row ${isDone?'done':''}">
       <label>
-        <input type="checkbox" data-key="${r.k}" ${done?'checked':''}>
-        <span class="res-name">${r.name}</span>
+        <input type="checkbox" data-key="${t.k}" ${isDone?'checked':''}>
+        <span class="todo-name">${t.name}</span>
       </label>
+      <span class="todo-tag">${t.tag}</span>
     </div>`;
   }).join('');
+  document.getElementById('todo-summary').textContent = `${done} of ${TODO.length} done`;
   wrap.querySelectorAll('input').forEach(cb => {
     cb.addEventListener('change', e => {
-      const s = JSON.parse(localStorage.getItem('yst-res') || '{}');
+      const s = JSON.parse(localStorage.getItem('yst-todo') || '{}');
       if (e.target.checked) s[e.target.dataset.key] = 1;
       else delete s[e.target.dataset.key];
-      localStorage.setItem('yst-res', JSON.stringify(s));
-      e.target.closest('.res-row').classList.toggle('done', e.target.checked);
+      localStorage.setItem('yst-todo', JSON.stringify(s));
+      e.target.closest('.todo-row').classList.toggle('done', e.target.checked);
+      const d = wrap.querySelectorAll('input:checked').length;
+      document.getElementById('todo-summary').textContent = `${d} of ${TODO.length} done`;
     });
   });
 }
-renderRes();
+renderTodo();
 
 /* ---------- share / print ---------- */
 document.getElementById('copy-link').addEventListener('click', async (e)=>{
