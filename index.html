@@ -256,6 +256,29 @@
   .pack-item input:checked::after{content:"✓";position:absolute;color:var(--cream);font-size:.78rem;left:3px;top:-3px;font-weight:700}
   .pack-item input:checked + span{text-decoration:line-through;color:rgba(27,24,18,.4)}
 
+  /* trip log */
+  .log-list{border-left:2px solid var(--line);margin-left:8px;padding-left:26px;display:flex;flex-direction:column;gap:22px;position:relative}
+  .log-row{position:relative}
+  .log-row::before{content:"";position:absolute;left:-33px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--moss)}
+  .log-row.done::before{background:var(--moss)}
+  .log-row.today::before{background:var(--ochre);border-color:var(--ochre);box-shadow:0 0 0 5px rgba(211,154,46,.25)}
+  .log-date{font-family:'Spline Sans Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);font-weight:600}
+  .log-title{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:700;margin:2px 0 4px}
+  .log-text{font-size:.92rem;color:rgba(27,24,18,.78);max-width:64ch}
+  .log-badge{display:inline-block;font-family:'Spline Sans Mono',monospace;font-size:.62rem;letter-spacing:.1em;padding:2px 8px;border-radius:5px;margin-left:8px;vertical-align:middle}
+  .log-badge.b-done{background:rgba(60,107,79,.16);color:var(--forest)}
+  .log-badge.b-today{background:var(--ochre);color:var(--pine);font-weight:600}
+
+  /* know the land facts */
+  .fact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .fact-card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:22px 20px;box-shadow:var(--shadow)}
+  .fact-card h3{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;margin-bottom:4px}
+  .fact-sub{font-family:'Spline Sans Mono',monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin-bottom:14px}
+  .fact-card ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .fact-card li{font-size:.89rem;color:rgba(27,24,18,.82);padding-left:18px;position:relative;line-height:1.45}
+  .fact-card li::before{content:"◆";position:absolute;left:0;top:1px;font-size:.6rem;color:var(--ochre)}
+  .fact-card li b{font-weight:700}
+
   .res-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
   .res-row{
     display:flex;justify-content:space-between;align-items:center;background:var(--paper);
@@ -295,7 +318,7 @@
 
   @media(max-width:780px){
     .wx-grid{grid-template-columns:repeat(2,1fr)}
-    .miss-grid{grid-template-columns:1fr}
+    .miss-grid,.fact-grid{grid-template-columns:1fr}
     .lodge-grid,.pack-grid,.res-list,.logi-grid,.bk-grid,.bk-grid-inner{grid-template-columns:1fr}
     .glance{grid-template-columns:repeat(2,1fr)}
     .day-card{grid-template-columns:64px 1fr;gap:16px}
@@ -727,6 +750,81 @@
       <div class="stops"><span class="stop">Wake 3:00 AM</span><span class="stop">Leave 3:30 AM</span><span class="stop">Drop car 5:00</span><span class="stop">TSA 5:15</span><span class="stop">Boarding 5:35</span></div>
       <div class="tip"><b>Pack the car the night before.</b> Fill the tank in Gardiner Saturday evening. Gardiner to BZN is 1.5 hr at that hour, deer on the road, drive carefully.</div>
     </div>
+  </div>
+</section>
+
+<section class="wrap" id="triplog">
+  <div class="sec-label">The record</div>
+  <h2 class="sec-title">Trip log, as it happened</h2>
+  <p class="sec-intro">This page is the keepsake. What actually went down, day by day.</p>
+  <div class="log-list">
+    <div class="log-row done">
+      <div class="log-date">Thu, Jul 2<span class="log-badge b-done">✓ Done</span></div>
+      <div class="log-title">Landed and straight into it</div>
+      <div class="log-text">SEA to BZN, drive down Paradise Valley to Gardiner. Roosevelt Arch, Mammoth Hot Springs terraces, then Lamar Valley in the evening light. Bison country from hour one.</div>
+    </div>
+    <div class="log-row done">
+      <div class="log-date">Fri, Jul 3<span class="log-badge b-done">✓ Done</span></div>
+      <div class="log-title">Two parks in one day</div>
+      <div class="log-text">Old Faithful and Norris Geyser Basin in the morning, then all the way south into Grand Teton. Boat cruise on Jenny Lake under the range, dinner at the Mural Room in Jackson Lake Lodge with the Tetons out the window.</div>
+    </div>
+    <div class="log-row today">
+      <div class="log-date">Sat, Jul 4<span class="log-badge b-today">Today</span></div>
+      <div class="log-title">Canyon, Hayden, Grand Prismatic</div>
+      <div class="log-text">Artist Point and the Lower Falls, bison in Hayden Valley, then the Grand Prismatic overlook in late afternoon light. Fill the tank and pack the car tonight.</div>
+    </div>
+    <div class="log-row">
+      <div class="log-date">Sun, Jul 5</div>
+      <div class="log-title">Pre dawn run to Bozeman</div>
+      <div class="log-text">Wake 3 AM, leave 3:30, drop the car by 5, wheels up at 6:03. Home by 7 AM Seattle time with two national parks behind us.</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="learn">
+  <div class="sec-label">Know the land</div>
+  <h2 class="sec-title">The country you just drove through</h2>
+  <div class="fact-grid">
+
+    <div class="fact-card">
+      <h3>Montana</h3>
+      <div class="fact-sub">Big Sky Country</div>
+      <ul>
+        <li><b>4th largest state,</b> barely 1.1 million people. Cattle outnumber humans roughly two to one.</li>
+        <li>The name comes from the Spanish <b>montaña</b>, mountain. The western third is Rockies, the rest is high plains.</li>
+        <li>Gardiner sits near the <b>45th parallel</b>, halfway between the equator and the North Pole.</li>
+        <li>The <b>Roosevelt Arch</b> cornerstone was laid by Teddy Roosevelt himself in 1903. The inscription: "For the Benefit and Enjoyment of the People."</li>
+        <li>Montana holds the <b>largest grizzly population</b> in the lower 48, around 2,000 bears.</li>
+        <li>The Yellowstone River you followed from Gardiner is the <b>longest undammed river</b> in the contiguous US, 692 miles.</li>
+      </ul>
+    </div>
+
+    <div class="fact-card">
+      <h3>Yellowstone</h3>
+      <div class="fact-sub">The world's first national park</div>
+      <ul>
+        <li>Established <b>March 1, 1872</b>, signed by President Grant. No park anywhere on Earth existed before it.</li>
+        <li>You spent three days inside a <b>supervolcano</b>. The caldera is roughly 30 by 45 miles; the last supereruption was about 640,000 years ago.</li>
+        <li>That magma heat powers <b>10,000+ hydrothermal features</b> and about half of all the geysers on the planet.</li>
+        <li><b>Grand Prismatic</b> is the largest hot spring in the US. The rainbow rings are living mats of heat-loving microbes, each color a different temperature band.</li>
+        <li>The bison here are the <b>only herd in America</b> that has lived wild on the same land since prehistoric times.</li>
+        <li><b>Wolves returned in 1995,</b> released right in Lamar Valley where you watched for them. Their comeback reshaped the whole ecosystem, down to where the trees grow.</li>
+      </ul>
+    </div>
+
+    <div class="fact-card">
+      <h3>Grand Teton</h3>
+      <div class="fact-sub">Youngest mountains, oldest rock</div>
+      <ul>
+        <li>The Tetons are the <b>youngest range in the Rockies,</b> still rising along the Teton fault, yet made of some of the <b>oldest rock in North America,</b> around 2.7 billion years.</li>
+        <li><b>No foothills.</b> The range jumps 7,000 feet straight off the valley floor, which is why it looks unreal from Jenny Lake.</li>
+        <li>The Grand itself tops out at <b>13,775 feet</b>.</li>
+        <li><b>Jenny Lake</b> was carved by a glacier and left behind about 12,000 years ago. The water you cruised is snowmelt clear.</li>
+        <li>Jackson Hole got its name from fur trappers: a <b>"hole"</b> was their word for a high mountain valley.</li>
+        <li>The park exists partly because <b>John D. Rockefeller Jr. secretly bought up valley ranchland</b> for years and gave it to the nation in 1950.</li>
+      </ul>
+    </div>
+
   </div>
 </section>
 
